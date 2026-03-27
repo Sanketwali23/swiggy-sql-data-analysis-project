@@ -1,111 +1,117 @@
-🚀 Swiggy Data Analysis Project (SQL + Data Warehousing)
-📌 Project Overview
+# 🚀 Swiggy Data Analysis Project (SQL + Data Warehousing)
 
-This project focuses on end-to-end data analysis of Swiggy order data using SQL.
-It covers data cleaning, transformation, data modeling (star schema), and business insights generation.
+---
 
-The goal is to simulate a real-world data analyst workflow — from raw data to actionable insights.
+## 📌 Project Overview
+This project focuses on end-to-end data analysis of Swiggy order data using SQL.  
+It includes data cleaning, transformation, data modeling (star schema), and business insights.
 
-🧠 Problem Statement
+---
 
-Food delivery platforms generate massive transactional data.
-This project answers key business questions like:
+## 🧠 Problem Statement
+- 📈 Identify peak order periods  
+- 🌍 Find top cities & states by revenue  
+- 🍽️ Analyze restaurant & category performance  
+- 💰 Understand customer spending patterns  
 
-📈 When do orders peak?
-🌍 Which cities and states generate maximum revenue?
-🍽️ Which restaurants and categories perform best?
-💰 What are customer spending patterns?
-⚙️ Tech Stack
-🗄️ SQL Server (T-SQL)
-📊 Data Warehousing (Star Schema)
-📈 Analytical Queries
-🧹 Data Cleaning Techniques
-📂 Dataset
-Source: Swiggy-like dataset
-Contains:
-Location data (State, City, Area)
-Order details
-Restaurant & dish info
-Price, Ratings, Rating Count
-🧹 Data Cleaning & Validation
+---
 
-✔ Checked NULL values across all columns
-✔ Identified blank/empty records
-✔ Detected duplicate records
-✔ Removed duplicates using ROW_NUMBER()
+## ⚙️ Tech Stack
+- 🗄️ SQL Server (T-SQL)
+- 📊 Data Warehousing
+- 📈 Analytical Queries
 
-🏗️ Data Modeling (Star Schema)
+---
 
-Designed a scalable data warehouse structure:
+## 📂 Dataset
+Includes:
+- Location data  
+- Order details  
+- Restaurant & dish info  
+- Price, ratings  
 
-⭐ Fact Table
-fact_orders
-Order metrics (Price, Rating, Count)
-🌐 Dimension Tables
-dim_date → Time-based analysis
-dim_location → Geography insights
-dim_restaurant → Restaurant performance
-dim_category → Food categories
-dim_dish → Dish-level analysis
-🔄 ETL Process
-Extracted raw data from swiggy_data
-Transformed into structured format
-Loaded into fact & dimension tables
-Maintained referential integrity using foreign keys
-📊 Key KPIs
-📦 Total Orders
-💰 Total Revenue
-🍽️ Average Dish Price
-⭐ Average Rating
-📈 Business Insights
-📅 Time-Based Analysis
-Monthly order trends 📊
-Quarterly performance 📈
-Year-wise growth 📉
-Peak order days (weekday analysis)
-🌍 Location Analysis
-🏙️ Top cities by order volume
-💸 Top cities by revenue
-🌎 State-wise revenue contribution
-🍽️ Food Performance
-🏆 Top restaurants by revenue
-🍔 Top categories by orders
-💰 Customer Spending Behavior
+---
 
-Orders categorized into buckets:
+## 🧹 Data Cleaning
+- Removed NULL values  
+- Removed duplicates using ROW_NUMBER()  
+- Fixed inconsistencies  
 
-Under ₹100
-₹100–199
-₹200–299
-₹300–499
-₹500+
+---
 
-➡ Helps understand pricing strategy & customer affordability
+## 🏗️ Data Model
+**Fact Table:**  
+- fact_orders  
 
-🔥 Advanced Insights
-Combined restaurant + location analysis
-Identified top revenue-generating restaurants with geographic context
-Enabled multi-dimensional slicing (time + location + category)
-💡 Key Learnings
-Real-world data cleaning challenges
-Importance of data modeling (Star Schema)
-Writing efficient analytical SQL queries
-Translating data into business decisions
-🧠 Why This Project Stands Out (Top 1% 🚀)
+**Dimension Tables:**  
+- dim_date  
+- dim_location  
+- dim_restaurant  
+- dim_category  
+- dim_dish  
 
-✔ Not just queries — complete data pipeline
-✔ Includes data warehousing concepts
-✔ Covers business-focused analysis
-✔ Clean, structured, and scalable design
-✔ Mimics industry-level analytics workflow
+---
 
-📌 Future Improvements
-📊 Power BI / Tableau Dashboard
-⚡ Query optimization (indexes)
-🤖 Predictive analytics (ML models)
-📡 Real-time data pipeline integration
-🙌 Final Note
+## 📊 Key Metrics
+- Total Orders  
+- Total Revenue  
+- Average Price  
+- Average Rating  
 
-This project demonstrates how raw data can be transformed into powerful business insights using SQL.
+---
 
-“Data is not useful until it tells a story — this project tells that story.”
+## 📈 Insights
+
+### 📅 Time Analysis
+- Monthly trends  
+- Quarterly trends  
+- Yearly growth  
+- Peak weekdays  
+
+### 🌍 Location Analysis
+- Top cities by orders  
+- Top cities by revenue  
+- State-wise revenue  
+
+### 🍽️ Performance
+- Top restaurants  
+- Top categories  
+
+### 💰 Spending Analysis
+- Order value buckets  
+- Customer spending behavior  
+
+---
+
+## 📁 Project Structure
+- swiggy analysis.sql
+- README.md
+
+---
+
+## ▶️ How to Run
+1. Import dataset into SQL Server  
+2. Run table creation scripts  
+3. Execute queries  
+4. Analyze results  
+
+---
+
+## 💡 Key Learning
+- Data cleaning  
+- Data modeling  
+- SQL analytics  
+- Business insights  
+
+---
+
+## 🚀 Why This Project Stands Out
+- End-to-end workflow  
+- Real-world dataset  
+- Business-focused analysis  
+- Structured data model  
+
+---
+
+## 🙌 Final Note
+Data becomes valuable when it tells a story — this project does exactly that.
