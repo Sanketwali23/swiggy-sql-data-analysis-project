@@ -1,68 +1,117 @@
-# 🚀 Swiggy SQL Data Analysis Project
-
-![SQL](https://img.shields.io/badge/SQL-Server-blue?logo=microsoft-sql-server)
-![Data Analysis](https://img.shields.io/badge/Data-Analysis-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
-
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Problem Statement](#problem-statement)
-- [Tech Stack](#tech-stack)
-- [Dataset](#dataset)
-- [Project Structure](#project-structure)
-- [Data Cleaning](#data-cleaning)
-- [Data Model](#data-model)
-- [Key Insights](#key-insights)
-- [How to Run](#how-to-run)
-- [Key Findings](#key-findings)
-- [Learning Outcomes](#learning-outcomes)
+# 🚀 Swiggy Data Analysis Project (SQL + Data Warehousing)
 
 ---
 
-## 📌 Overview
-
-This is an **end-to-end data analysis project** on Swiggy order data using **SQL** and **Data Warehousing** principles. The project demonstrates the complete data pipeline: from raw data ingestion through cleaning, transformation, and modeling to actionable business insights.
-
-**Objective:** Uncover hidden patterns in Swiggy's operations including order trends, geographical performance, restaurant rankings, and customer spending behaviors.
+## 📌 Project Overview
+This project focuses on end-to-end data analysis of Swiggy order data using SQL.  
+It includes data cleaning, transformation, data modeling (star schema), and business insights.
 
 ---
 
-## 🎯 Problem Statement
-
-This project addresses critical business questions:
-
-| Question | Impact |
-|----------|--------|
-| 📈 When are peak order periods? | Optimize staffing and supply chain |
-| 🌍 Which cities/states drive the most revenue? | Strategic market expansion |
-| 🍽️ How do restaurants & categories perform? | Partner management & KPIs |
-| 💰 What are customer spending patterns? | Pricing strategy & promotions |
-| ⭐ Which restaurants have the highest ratings? | Quality benchmarking |
+## 🧠 Problem Statement
+- 📈 Identify peak order periods  
+- 🌍 Find top cities & states by revenue  
+- 🍽️ Analyze restaurant & category performance  
+- 💰 Understand customer spending patterns  
 
 ---
 
 ## ⚙️ Tech Stack
-
-| Component | Technology |
-|-----------|-----------|
-| **Database** | SQL Server (T-SQL) |
-| **Architecture** | Data Warehousing (Star Schema) |
-| **Analysis** | SQL Analytical Queries |
-| **Modeling** | Dimensional Modeling (Fact & Dimension Tables) |
+- 🗄️ SQL Server (T-SQL)
+- 📊 Data Warehousing
+- 📈 Analytical Queries
 
 ---
 
-## 📊 Dataset
+## 📂 Dataset
+Includes:
+- Location data  
+- Order details  
+- Restaurant & dish info  
+- Price, ratings  
 
-The dataset includes comprehensive information across multiple dimensions:
+---
 
-**Tables Included:**
-- 📍 **Location Data** - Cities, states, regions
-- 📦 **Order Details** - Order IDs, quantities, amounts, timestamps
-- 🍽️ **Restaurant Information** - Names, cuisines, locations
-- 🍜 **Dish Catalog** - Dish names, categories, prices
-- 💬 **Ratings & Reviews** - Customer ratings, feedback
+## 🧹 Data Cleaning
+- Removed NULL values  
+- Removed duplicates using ROW_NUMBER()  
+- Fixed inconsistencies  
+
+---
+
+## 🏗️ Data Model
+**Fact Table:**  
+- fact_orders  
+
+**Dimension Tables:**  
+- dim_date  
+- dim_location  
+- dim_restaurant  
+- dim_category  
+- dim_dish  
+
+---
+
+## 📊 Key Metrics
+- Total Orders  
+- Total Revenue  
+- Average Price  
+- Average Rating  
+
+---
+
+## 📈 Insights
+
+### 📅 Time Analysis
+- Monthly trends  
+- Quarterly trends  
+- Yearly growth  
+- Peak weekdays  
+
+### 🌍 Location Analysis
+- Top cities by orders  
+- Top cities by revenue  
+- State-wise revenue  
+
+### 🍽️ Performance
+- Top restaurants  
+- Top categories  
+
+### 💰 Spending Analysis
+- Order value buckets  
+- Customer spending behavior  
 
 ---
 
 ## 📁 Project Structure
+- swiggy analysis.sql
+- README.md
+
+---
+
+## ▶️ How to Run
+1. Import dataset into SQL Server  
+2. Run table creation scripts  
+3. Execute queries  
+4. Analyze results  
+
+---
+
+## 💡 Key Learning
+- Data cleaning  
+- Data modeling  
+- SQL analytics  
+- Business insights  
+
+---
+
+## 🚀 Why This Project Stands Out
+- End-to-end workflow  
+- Real-world dataset  
+- Business-focused analysis  
+- Structured data model  
+
+---
+
+## 🙌 Final Note
+Data becomes valuable when it tells a story — this project does exactly that.
