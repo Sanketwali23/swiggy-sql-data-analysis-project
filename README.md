@@ -17,10 +17,10 @@ This project performs a full analytics pipeline on Swiggy food delivery order da
 
 | KPI | Value |
 |-----|-------|
-| 🛵 Total Orders | *(run query to populate)* |
-| 💰 Total Revenue | *(INR Millions — run query)* |
-| 🍛 Avg Dish Price | *(INR — run query)* |
-| ⭐ Avg Restaurant Rating | *(out of 5.00 — run query)* |
+| 🛵 Total Orders | *197401* |
+| 💰 Total Revenue | *53.00 INR Million* |
+| 🍛 Avg Dish Price | *268.50 INR* |
+| ⭐ Avg Restaurant Rating | *4.34* |
 
 > Run the KPI section of `SQLQuery1.sql` against your dataset to get actual figures.
 
