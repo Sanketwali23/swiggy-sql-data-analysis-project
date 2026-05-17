@@ -1,117 +1,122 @@
-# 🚀 Swiggy Data Analysis Project (SQL + Data Warehousing)
+
+# 🍽️ Swiggy Data Analytics — SQL Project
+
+> End-to-end SQL project: data cleaning → dimensional modelling → KPI analysis on Swiggy food delivery data
+
+![SQL Server](https://img.shields.io/badge/SQL_Server-T--SQL-blue) ![Star Schema](https://img.shields.io/badge/Schema-Star%20Schema-green) ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
 
 ---
 
 ## 📌 Project Overview
-This project focuses on end-to-end data analysis of Swiggy order data using SQL.  
-It includes data cleaning, transformation, data modeling (star schema), and business insights.
+
+This project performs a full analytics pipeline on Swiggy food delivery order data using **Microsoft SQL Server**. It covers data validation, deduplication, dimensional modelling (star schema), KPI computation, and deep-dive analysis across time, geography, cuisine, and pricing — ready to plug into any BI tool (Power BI, Tableau, etc.).
 
 ---
 
-## 🧠 Problem Statement
-- 📈 Identify peak order periods  
-- 🌍 Find top cities & states by revenue  
-- 🍽️ Analyze restaurant & category performance  
-- 💰 Understand customer spending patterns  
+## 📊 Key KPIs at a Glance
+
+| KPI | Value |
+|-----|-------|
+| 🛵 Total Orders | *(run query to populate)* |
+| 💰 Total Revenue | *(INR Millions — run query)* |
+| 🍛 Avg Dish Price | *(INR — run query)* |
+| ⭐ Avg Restaurant Rating | *(out of 5.00 — run query)* |
+
+> Run the KPI section of `SQLQuery1.sql` against your dataset to get actual figures.
 
 ---
 
-## ⚙️ Tech Stack
-- 🗄️ SQL Server (T-SQL)
-- 📊 Data Warehousing
-- 📈 Analytical Queries
+## 🗂️ Star Schema Design
+
+```
+                    ┌─────────────┐
+                    │  dim_date   │
+                    └──────┬──────┘
+          ┌────────────────┼────────────────┐
+          │                │                │
+   ┌──────┴──────┐  ┌──────┴──────┐  ┌─────┴───────────┐
+   │ dim_location│  │fact_orders  │  │ dim_restaurant  │
+   └─────────────┘  │  (central)  │  └─────────────────┘
+                    └──────┬──────┘
+              ┌────────────┴────────────┐
+       ┌──────┴──────┐        ┌─────────┴─────┐
+       │ dim_category│        │   dim_dish    │
+       └─────────────┘        └───────────────┘
+```
+
+**fact_orders** measures: `Price_INR`, `Rating`, `Rating_Count`
 
 ---
 
-## 📂 Dataset
-Includes:
-- Location data  
-- Order details  
-- Restaurant & dish info  
-- Price, ratings  
+## 🔍 Analysis Modules
+
+### 📅 Time-Based Trends
+- Monthly order volume
+- Quarterly revenue (INR Millions)
+- Year-over-year order growth
+- Week-of-year patterns
+
+### 📍 Location Intelligence
+- Top 10 cities by order volume
+- State-level revenue contribution (Top 10)
+
+### 🍽️ Food Performance
+- Top 10 restaurants by order count
+- Best cuisines by volume + average rating
+- Most ordered dishes
+
+### 💸 Customer Behaviour
+- Orders by price band: Below ₹100 / ₹100–199 / ₹200–299 / ₹300–499 / ₹500+
+- Rating distribution (Below 1 → 5)
+- Top-rated dishes & restaurants (minimum 100 ratings)
 
 ---
 
-## 🧹 Data Cleaning
-- Removed NULL values  
-- Removed duplicates using ROW_NUMBER()  
-- Fixed inconsistencies  
+## 🧹 Data Quality Steps
+
+✅ **NULL check** — across all 10 critical columns (State, City, Order_Date, Restaurant_Name, Location, Category, Dish_Name, Price_INR, Rating, Rating_Count)
+
+✅ **Duplicate detection** — GROUP BY all columns + `HAVING COUNT(*) > 1`
+
+✅ **Deduplication** — `ROW_NUMBER()` CTE → `DELETE WHERE rn > 1`
 
 ---
 
-## 🏗️ Data Model
-**Fact Table:**  
-- fact_orders  
+## 🛠️ Tech Stack
 
-**Dimension Tables:**  
-- dim_date  
-- dim_location  
-- dim_restaurant  
-- dim_category  
-- dim_dish  
-
----
-
-## 📊 Key Metrics
-- Total Orders  
-- Total Revenue  
-- Average Price  
-- Average Rating  
+| Tool | Purpose |
+|------|---------|
+| Microsoft SQL Server | Database engine |
+| T-SQL | Query language |
+| CTEs (Common Table Expressions) | Deduplication logic |
+| Window Functions (`ROW_NUMBER`) | Duplicate ranking |
+| Star Schema | Dimensional modelling |
+| `DATEPART` / `DATENAME` | Date dimension derivation |
+| `FORMAT()` | KPI number formatting |
 
 ---
 
-## 📈 Insights
+## 🚀 How to Run
 
-### 📅 Time Analysis
-- Monthly trends  
-- Quarterly trends  
-- Yearly growth  
-- Peak weekdays  
-
-### 🌍 Location Analysis
-- Top cities by orders  
-- Top cities by revenue  
-- State-wise revenue  
-
-### 🍽️ Performance
-- Top restaurants  
-- Top categories  
-
-### 💰 Spending Analysis
-- Order value buckets  
-- Customer spending behavior  
+1. Restore / import raw data into `dbo.swiggy_data`
+2. Run **validation queries** (NULL check + duplicate scan)
+3. Execute **deduplication CTE** to clean the data
+4. Create **dimension + fact tables** (DDL section)
+5. Populate dims and fact via `INSERT...SELECT`
+6. Run **KPI + analysis queries**
 
 ---
 
-## 📁 Project Structure
-- swiggy analysis.sql
-- README.md
+## 📁 File Structure
+
+```
+📦 swiggy-sql-analytics
+ ┣ 📄 SQLQuery1.sql    ← Full pipeline: clean → model → analyse
+ ┗ 📄 README.md
+```
 
 ---
 
-## ▶️ How to Run
-1. Import dataset into SQL Server  
-2. Run table creation scripts  
-3. Execute queries  
-4. Analyze results  
+## 🙌 Connect
 
----
-
-## 💡 Key Learning
-- Data cleaning  
-- Data modeling  
-- SQL analytics  
-- Business insights  
-
----
-
-## 🚀 Why This Project Stands Out
-- End-to-end workflow  
-- Real-world dataset  
-- Business-focused analysis  
-- Structured data model  
-
----
-
-## 🙌 Final Note
-Data becomes valuable when it tells a story — this project does exactly that.
+If you find this useful, drop a ⭐ on the repo and feel free to fork and extend with your own BI dashboards!
